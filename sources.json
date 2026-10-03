@@ -1,0 +1,487 @@
+[
+ {
+  "name": "OpenAI News",
+  "url": "https://openai.com/news/rss.xml",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Google AI Blog",
+  "url": "https://blog.google/technology/ai/rss/",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Google DeepMind",
+  "url": "https://deepmind.google/blog/rss.xml",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Hugging Face Blog",
+  "url": "https://huggingface.co/blog/feed.xml",
+  "category": "ai",
+  "filter": "broad"
+ },
+ {
+  "name": "NVIDIA Blog",
+  "url": "https://blogs.nvidia.com/feed/",
+  "category": "ai",
+  "filter": "broad"
+ },
+ {
+  "name": "The Verge AI",
+  "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "TechCrunch AI",
+  "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "MIT Technology Review AI",
+  "url": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Ars Technica AI",
+  "url": "https://arstechnica.com/ai/feed/",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Wired AI",
+  "url": "https://www.wired.com/feed/tag/ai/latest/rss",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Simon Willison",
+  "url": "https://simonwillison.net/atom/everything/",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "One Useful Thing (Ethan Mollick)",
+  "url": "https://www.oneusefulthing.org/feed",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Latent Space",
+  "url": "https://www.latent.space/feed",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "The Rundown AI",
+  "url": "https://rss.beehiiv.com/feeds/2R3C6Bt5wj.xml",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Ben's Bites",
+  "url": "https://www.bensbites.com/feed",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Import AI",
+  "url": "https://importai.substack.com/feed",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Interconnects",
+  "url": "https://www.interconnects.ai/feed",
+  "category": "ai",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Last Week in AI",
+  "url": "https://lastweekin.ai/feed",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "AI Snake Oil",
+  "url": "https://www.aisnakeoil.com/feed",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Stratechery",
+  "url": "https://stratechery.com/feed/",
+  "category": "ai",
+  "filter": "broad"
+ },
+ {
+  "name": "404 Media",
+  "url": "https://www.404media.co/rss/",
+  "category": "ai",
+  "filter": "broad"
+ },
+ {
+  "name": "HubSpot Marketing Blog",
+  "url": "https://blog.hubspot.com/marketing/rss.xml",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Neil Patel",
+  "url": "https://neilpatel.com/blog/feed/",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Search Engine Journal",
+  "url": "https://www.searchenginejournal.com/feed/",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Moz Blog",
+  "url": "https://moz.com/posts/rss/blog",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Ahrefs Blog",
+  "url": "https://ahrefs.com/blog/feed/",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Semrush Blog",
+  "url": "https://www.semrush.com/blog/feed/",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Backlinko",
+  "url": "https://backlinko.com/feed",
+  "category": "marketing",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Growth Memo (Kevin Indig)",
+  "url": "https://www.growth-memo.com/feed",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Social Media Today",
+  "url": "https://www.socialmediatoday.com/feeds/news/",
+  "category": "social",
+  "filter": "all"
+ },
+ {
+  "name": "Buffer Blog",
+  "url": "https://buffer.com/resources/rss/",
+  "category": "social",
+  "filter": "all"
+ },
+ {
+  "name": "Hootsuite Blog",
+  "url": "https://blog.hootsuite.com/feed/",
+  "category": "social",
+  "filter": "all"
+ },
+ {
+  "name": "Sprout Social Insights",
+  "url": "https://sproutsocial.com/insights/feed/",
+  "category": "social",
+  "filter": "all"
+ },
+ {
+  "name": "Social Media Examiner",
+  "url": "https://www.socialmediaexaminer.com/feed/",
+  "category": "social",
+  "filter": "broad"
+ },
+ {
+  "name": "TechCrunch Social",
+  "url": "https://techcrunch.com/category/social/feed/",
+  "category": "social",
+  "filter": "broad"
+ },
+ {
+  "name": "The Verge Creators",
+  "url": "https://www.theverge.com/rss/creators/index.xml",
+  "category": "social",
+  "filter": "all"
+ },
+ {
+  "name": "YouTube Official Blog",
+  "url": "https://blog.youtube/rss/",
+  "category": "social",
+  "filter": "all"
+ },
+ {
+  "name": "Metricool Blog",
+  "url": "https://metricool.com/feed/",
+  "category": "social",
+  "filter": "all"
+ },
+ {
+  "name": "Creator Economy (Peter Yang)",
+  "url": "https://creatoreconomy.so/feed",
+  "category": "creator",
+  "filter": "all"
+ },
+ {
+  "name": "Passionfruit",
+  "url": "https://passionfru.it/feed/",
+  "category": "creator",
+  "filter": "all"
+ },
+ {
+  "name": "Tubefilter",
+  "url": "https://www.tubefilter.com/feed/",
+  "category": "creator",
+  "filter": "broad"
+ },
+ {
+  "name": "Digiday",
+  "url": "https://digiday.com/feed/",
+  "category": "creator",
+  "filter": "broad"
+ },
+ {
+  "name": "Influencer Marketing Hub",
+  "url": "https://influencermarketinghub.com/feed/",
+  "category": "creator",
+  "filter": "all"
+ },
+ {
+  "name": "Modern Retail",
+  "url": "https://www.modernretail.co/feed/",
+  "category": "creator",
+  "filter": "broad"
+ },
+ {
+  "name": "Substack On Substack",
+  "url": "https://on.substack.com/feed",
+  "category": "creator",
+  "filter": "all"
+ },
+ {
+  "name": "Smashing Magazine",
+  "url": "https://www.smashingmagazine.com/feed/",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "A List Apart",
+  "url": "https://alistapart.com/main/feed/",
+  "category": "design",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "CSS-Tricks",
+  "url": "https://css-tricks.com/feed/",
+  "category": "design",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Creative Bloq",
+  "url": "https://www.creativebloq.com/feed",
+  "category": "design",
+  "filter": "broad"
+ },
+ {
+  "name": "Fast Company Design",
+  "url": "https://www.fastcompany.com/co-design/rss",
+  "category": "design",
+  "filter": "broad"
+ },
+ {
+  "name": "Dribbble Stories",
+  "url": "https://dribbble.com/stories.rss",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "Figma Blog",
+  "url": "https://www.figma.com/blog/feed/atom.xml",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "Webflow Blog",
+  "url": "https://webflow.com/blog/rss.xml",
+  "category": "design",
+  "filter": "broad"
+ },
+ {
+  "name": "Nielsen Norman Group",
+  "url": "https://www.nngroup.com/feed/rss/",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "UX Collective",
+  "url": "https://uxdesign.cc/feed",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "Sidebar",
+  "url": "https://sidebar.io/feed.xml",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "Abduzeedo",
+  "url": "https://abduzeedo.com/rss.xml",
+  "category": "design",
+  "filter": "broad"
+ },
+ {
+  "name": "BP&O",
+  "url": "https://bpando.org/feed/",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "Showit Blog",
+  "url": "https://showit.com/feed/",
+  "category": "design",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Squarespace Blog",
+  "url": "https://www.squarespace.com/blog?format=rss",
+  "category": "design",
+  "filter": "broad"
+ },
+ {
+  "name": "Notion Releases",
+  "url": "https://www.notion.com/releases/rss.xml",
+  "category": "tools",
+  "filter": "broad",
+  "days": 60
+ },
+ {
+  "name": "Dubsado Blog",
+  "url": "https://www.dubsado.com/blog/rss.xml",
+  "category": "tools",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Flodesk Blog",
+  "url": "https://flodesk.com/blog/feed",
+  "category": "tools",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Zapier Blog",
+  "url": "https://zapier.com/blog/feeds/latest/",
+  "category": "tools",
+  "filter": "all"
+ },
+ {
+  "name": "Typefully Blog",
+  "url": "https://typefully.com/blog/rss.xml",
+  "category": "tools",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Product Hunt",
+  "url": "https://www.producthunt.com/feed",
+  "category": "tools",
+  "filter": "broad"
+ },
+ {
+  "name": "Ness Labs",
+  "url": "https://nesslabs.com/feed",
+  "category": "tools",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Marie Poulin",
+  "url": "https://mariepoulin.com/feed/",
+  "category": "tools",
+  "filter": "all",
+  "days": 60
+ },
+ {
+  "name": "Google News: Anthropic + Claude",
+  "url": "https://news.google.com/rss/search?q=Anthropic+OR+%22Claude+AI%22+when:7d&hl=en-US&gl=US&ceid=US:en",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: OpenAI + ChatGPT",
+  "url": "https://news.google.com/rss/search?q=OpenAI+OR+ChatGPT+when:7d&hl=en-US&gl=US&ceid=US:en",
+  "category": "ai",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Canva",
+  "url": "https://news.google.com/rss/search?q=Canva+when:14d&hl=en-US&gl=US&ceid=US:en",
+  "category": "tools",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Adobe Firefly + Creative Cloud",
+  "url": "https://news.google.com/rss/search?q=%22Adobe+Firefly%22+OR+%22Creative+Cloud%22+OR+%22Adobe+Express%22+when:14d&hl=en-US&gl=US&ceid=US:en",
+  "category": "tools",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Notion",
+  "url": "https://news.google.com/rss/search?q=%22Notion+AI%22+OR+%22Notion+app%22+OR+%22Notion+Labs%22+when:30d&hl=en-US&gl=US&ceid=US:en",
+  "category": "tools",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Dubsado + Flodesk",
+  "url": "https://news.google.com/rss/search?q=Dubsado+OR+Flodesk&hl=en-US&gl=US&ceid=US:en",
+  "category": "tools",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Influencer Marketing",
+  "url": "https://news.google.com/rss/search?q=%22influencer+marketing%22+when:7d&hl=en-US&gl=US&ceid=US:en",
+  "category": "creator",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Creator Economy",
+  "url": "https://news.google.com/rss/search?q=%22creator+economy%22+when:7d&hl=en-US&gl=US&ceid=US:en",
+  "category": "creator",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: AI Marketing",
+  "url": "https://news.google.com/rss/search?q=%22AI+marketing%22+OR+%22generative+AI%22+marketing+when:7d&hl=en-US&gl=US&ceid=US:en",
+  "category": "marketing",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Brand Design + Rebrands",
+  "url": "https://news.google.com/rss/search?q=%22visual+identity%22+OR+%22brand+identity%22+OR+%22logo+redesign%22+design+agency+when:7d&hl=en-US&gl=US&ceid=US:en",
+  "category": "design",
+  "filter": "all"
+ },
+ {
+  "name": "Google News: Pinterest + Threads updates",
+  "url": "https://news.google.com/rss/search?q=Pinterest+OR+%22Threads+app%22+new+feature+when:7d&hl=en-US&gl=US&ceid=US:en",
+  "category": "social",
+  "filter": "all"
+ }
+]
