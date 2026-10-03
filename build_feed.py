@@ -167,14 +167,81 @@ def write_opml(sources):
 
 
 def write_index(items):
-    rows = "".join(f'<li><code>{BASE_URL}/{s}.xml</code> {escape(l)}</li>' for s, l in
-                   [("all", "Everything")] + list(CATEGORIES.items()))
-    open("public/index.html", "w", encoding="utf-8").write(
-        f"<!doctype html><meta charset=utf-8><title>SB Signal Feed</title>"
-        f"<body style='font-family:system-ui;max-width:720px;margin:40px auto;padding:0 16px'>"
-        f"<h1>SB SIGNAL FEED</h1><p>{len(items)} items. Updated "
-        f"{datetime.now(timezone.utc):%Y-%m-%d %H:%M} UTC.</p><ul>{rows}</ul>"
-        f"<p><a href='sources.opml'>sources.opml</a></p></body>")
+    def dedupe_summary(i):
+        head = re.sub(r"\s+-\s+[^-]+$", "", i["title"]).lower()[:60]
+        return "" if i["summary"].lower().startswith(head) else i["summary"]
+    data = [dict(t=i["title"], l=i["link"], s=dedupe_summary(i), ts=i["ts"], src=i["source"], c=i["category"])
+            for i in items]
+    payload = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    cats = json.dumps({k: v.split(" (")[0] for k, v in CATEGORIES.items()})
+    built = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    page = INDEX_TEMPLATE.replace("__DATA__", payload).replace("__CATS__", cats) \
+                         .replace("__BUILT__", built).replace("__BASE__", BASE_URL)
+    open("public/index.html", "w", encoding="utf-8").write(page)
+
+
+INDEX_TEMPLATE = r"""<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SB Signal Feed</title>
+<link rel="alternate" type="application/rss+xml" title="SB Signal Feed" href="all.xml">
+<style>
+:root{--bg:#f6f4ef;--card:#fff;--ink:#16151a;--mute:#6b6873;--line:#e4e0d8;--accent:#e8344e;--chip:#efece6}
+@media (prefers-color-scheme:dark){:root{--bg:#121116;--card:#1b1a20;--ink:#f1eff4;--mute:#9b98a3;--line:#2c2a33;--accent:#ff5a72;--chip:#26242c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px 80px}
+header{padding:36px 0 16px}
+h1{font-size:28px;letter-spacing:.06em;margin:0}
+.meta{color:var(--mute);font-size:13px;margin-top:6px}
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);padding:12px 0;border-bottom:1px solid var(--line)}
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;scrollbar-width:none}
+.tabs button{flex:none;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 12px;font:600 12px/1 inherit;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tabs span{opacity:.6;margin-left:4px;font-weight:500}
+input{width:100%;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;padding:10px 12px;font:inherit}
+h2{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin:28px 0 8px}
+.item{display:block;text-decoration:none;color:inherit;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:8px 0}
+.item:hover{border-color:var(--accent)}
+.item h3{font-size:16px;margin:0 0 4px;line-height:1.35}
+.item p{margin:0 0 8px;color:var(--mute);font-size:14px}
+.row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:var(--mute)}
+.chip{background:var(--chip);border-radius:6px;padding:2px 7px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;font-size:11px}
+.new{color:var(--accent);font-weight:700;letter-spacing:.06em}
+.empty{color:var(--mute);text-align:center;padding:40px 0}
+footer{color:var(--mute);font-size:12px;margin-top:40px;word-break:break-all}
+footer a{color:inherit}
+</style></head><body><div class="wrap">
+<header><h1>SB SIGNAL FEED</h1><div class="meta" id="meta"></div></header>
+<div class="bar"><div class="tabs" id="tabs"></div><input id="q" type="search" placeholder="search titles, summaries, sources"></div>
+<main id="list"></main>
+<footer>RSS: <a href="all.xml">__BASE__/all.xml</a> &middot; topic feeds: ai, marketing, social, creator, design, tools (.xml) &middot; <a href="sources.opml">sources.opml</a></footer>
+</div>
+<script>
+const DATA=__DATA__, CATS=__CATS__, BUILT=new Date("__BUILT__");
+let cat="all", q="", lastVisit=0;
+try{lastVisit=+localStorage.getItem("sbLastVisit")||0;localStorage.setItem("sbLastVisit",Date.now())}catch(e){}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dayKey=ts=>{const d=new Date(ts*1000),t=new Date();t.setHours(0,0,0,0);const y=new Date(t);y.setDate(t.getDate()-1);
+ if(d>=t)return"Today";if(d>=y)return"Yesterday";return d.toLocaleDateString(undefined,{weekday:"long",month:"short",day:"numeric"})};
+document.getElementById("meta").textContent=DATA.length+" articles · updated "+BUILT.toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+function tabs(){const counts={all:DATA.length};DATA.forEach(i=>counts[i.c]=(counts[i.c]||0)+1);
+ document.getElementById("tabs").innerHTML=[["all","Everything"],...Object.entries(CATS)].map(([k,v])=>
+ `<button data-c="${k}" aria-pressed="${k===cat}">${esc(v)}<span>${counts[k]||0}</span></button>`).join("")}
+function render(){const ql=q.toLowerCase();
+ const rows=DATA.filter(i=>(cat==="all"||i.c===cat)&&(!ql||(i.t+" "+i.s+" "+i.src).toLowerCase().includes(ql)));
+ if(!rows.length){document.getElementById("list").innerHTML='<div class="empty">nothing here. suspicious.</div>';return}
+ let html="",cur="";
+ rows.forEach(i=>{const k=dayKey(i.ts);if(k!==cur){html+=`<h2>${k}</h2>`;cur=k}
+  const isNew=lastVisit&&i.ts*1000>lastVisit;
+  html+=`<a class="item" href="${esc(i.l)}" target="_blank" rel="noopener"><h3>${esc(i.t)}</h3>${i.s?`<p>${esc(i.s)}</p>`:""}
+  <div class="row"><span class="chip">${esc(CATS[i.c])}</span><span>${esc(i.src.replace("Google News: ",""))}</span>
+  <span>${new Date(i.ts*1000).toLocaleTimeString(undefined,{hour:"numeric",minute:"2-digit"})}</span>${isNew?'<span class="new">NEW</span>':""}</div></a>`});
+ document.getElementById("list").innerHTML=html}
+document.getElementById("tabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;cat=b.dataset.c;tabs();render();window.scrollTo(0,0)});
+document.getElementById("q").addEventListener("input",e=>{q=e.target.value;render()});
+tabs();render();
+</script></body></html>"""
 
 
 if __name__ == "__main__":
